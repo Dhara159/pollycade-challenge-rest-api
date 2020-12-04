@@ -99,10 +99,11 @@ How to attempt this challenge:
 1) git clone https://github.com/Dhara159/pollycade-challenge-rest-api.git
 2) Create two new databases. (For dev and test environment) 
 3) Run `npm install`
-4) To start server: Run `npm run start`
-5) To start server in watch mode: Run `npm run watch`
-6) To run tests: Run `npm run test`
-7) To start tests in watch mode: Run `npm run watch-test`
+4) Create .env file and Add test and dev database URL in .env (Follow .env.example for more)
+5) To start server: Run `npm run start`
+6) To start server in watch mode: Run `npm run watch`
+7) To run tests: Run `npm run test`
+8) To start tests in watch mode: Run `npm run watch-test`
 
 > You don't have to run migrations and seeders separately. It is called directly when you run any server start, test command
 
