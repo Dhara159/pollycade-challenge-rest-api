@@ -1,0 +1,1430 @@
+{
+	"info": {
+		"_postman_id": "377b5b4d-1df3-4002-b430-b45d22424197",
+		"name": "Polycade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New Pricing Model",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\",\n    \"priceId\": \"120-12-12-12-12-12ssss-2212\",\n    \"pricing\": {\"price\":15,\"name\":\"60 minutes\",\"value\":60}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1337/pricing-models",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"pricing-models"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create New Pricing Model",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "priceId",
+									"value": "120-12-12-12-12-12ssss-221",
+									"type": "text"
+								},
+								{
+									"key": "pricing",
+									"value": "{\"price\":15,\"name\":\"60 minutes\",\"value\":60}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1337/pricing-models",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 16:54:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"priceModelId\": \"120-12-12-12-12-12ssss-221\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Pricing Models",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1337/pricing-models",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"pricing-models"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Pricing Models",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2041"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 16:54:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"3ba92095-3203-4888-a464-3c7d5d9acd7e\",\n            \"name\": \"Super Value Option\",\n            \"createdAt\": \"2020-12-03T16:53:33.599Z\",\n            \"updatedAt\": \"2020-12-03T16:53:33.599Z\",\n            \"priceConfigs\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"10 minutes\",\n                    \"price\": 3,\n                    \"value\": 10,\n                    \"createdAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"updatedAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"priceId\": \"3ba92095-3203-4888-a464-3c7d5d9acd7e\"\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"20 minutes\",\n                    \"price\": 5,\n                    \"value\": 20,\n                    \"createdAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"updatedAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"priceId\": \"3ba92095-3203-4888-a464-3c7d5d9acd7e\"\n                }\n            ]\n        },\n        {\n            \"id\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\",\n            \"name\": \"Default\",\n            \"createdAt\": \"2020-12-03T16:53:33.599Z\",\n            \"updatedAt\": \"2020-12-03T16:53:33.599Z\",\n            \"priceConfigs\": [\n                {\n                    \"id\": 3,\n                    \"name\": \"10 minutes\",\n                    \"price\": 3,\n                    \"value\": 10,\n                    \"createdAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"updatedAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"priceId\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\"\n                },\n                {\n                    \"id\": 4,\n                    \"name\": \"20 minutes\",\n                    \"price\": 5,\n                    \"value\": 20,\n                    \"createdAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"updatedAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"priceId\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\"\n                },\n                {\n                    \"id\": 5,\n                    \"name\": \"60 minutes\",\n                    \"price\": 15,\n                    \"value\": 60,\n                    \"createdAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"updatedAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"priceId\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\"\n                }\n            ]\n        },\n        {\n            \"id\": \"48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e\",\n            \"name\": \"Long Play\",\n            \"createdAt\": \"2020-12-03T16:53:33.599Z\",\n            \"updatedAt\": \"2020-12-03T16:53:33.599Z\",\n            \"priceConfigs\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"60 minutes\",\n                    \"price\": 15,\n                    \"value\": 60,\n                    \"createdAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"updatedAt\": \"2020-12-03T16:53:33.612Z\",\n                    \"priceId\": \"48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e\"\n                }\n            ]\n        },\n        {\n            \"id\": \"120-12-12-12-12-12ssss-221\",\n            \"name\": \"test\",\n            \"createdAt\": \"2020-12-03T16:54:07.440Z\",\n            \"updatedAt\": \"2020-12-03T16:54:07.440Z\",\n            \"priceConfigs\": [\n                {\n                    \"id\": 7,\n                    \"name\": null,\n                    \"price\": null,\n                    \"value\": null,\n                    \"createdAt\": \"2020-12-03T16:54:07.561Z\",\n                    \"updatedAt\": \"2020-12-03T16:54:07.561Z\",\n                    \"priceId\": \"120-12-12-12-12-12ssss-221\"\n                }\n            ]\n        },\n        {\n            \"defaultPriceConfigs\": [\n                {\n                    \"price\": 3,\n                    \"name\": \"10 minutes\",\n                    \"value\": 10\n                },\n                {\n                    \"price\": 5,\n                    \"name\": \"20 minutes\",\n                    \"value\": 20\n                },\n                {\n                    \"price\": 15,\n                    \"name\": \"60 minutes\",\n                    \"value\": 60\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get individual pricing model by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1337/pricing-models/:pmId",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"pricing-models",
+						":pmId"
+					],
+					"variable": [
+						{
+							"key": "pmId",
+							"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pricing model not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 17:14:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Pricing Model not found for given Id\"\n}"
+				},
+				{
+					"name": "Pricing model found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "361"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 17:19:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e\",\n        \"name\": \"Long Play\",\n        \"createdAt\": \"2020-12-03T16:53:33.599Z\",\n        \"updatedAt\": \"2020-12-03T16:53:33.599Z\",\n        \"priceConfigs\": [\n            {\n                \"id\": 6,\n                \"name\": \"60 minutes\",\n                \"price\": 15,\n                \"value\": 60,\n                \"createdAt\": \"2020-12-03T16:53:33.612Z\",\n                \"updatedAt\": \"2020-12-03T16:53:33.612Z\",\n                \"priceId\": \"48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update pricing model using Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"newPricingName\":\"Long Play Updated\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1337/pricing-models/:pmId",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"pricing-models",
+						":pmId"
+					],
+					"variable": [
+						{
+							"key": "pmId",
+							"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pricing model not found for given Id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newPricingName",
+									"value": "Long Play Updated",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 17:35:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Pricing Model not found for given Id\"\n}"
+				},
+				{
+					"name": "Pricing model updated successfully",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newPricingName",
+									"value": "Long Play Updated",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 17:34:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"message\": \"Pricing model updated successfully\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get prices configured for a specific pricing model",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1337/pricing-models/:pmId/prices",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"pricing-models",
+						":pmId",
+						"prices"
+					],
+					"variable": [
+						{
+							"key": "pmId",
+							"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pricing Model not found for given Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 17:52:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Pricing Model not found for given Id\"\n}"
+				},
+				{
+					"name": "No pricing configurations found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 17:50:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": []\n}"
+				},
+				{
+					"name": "Pricing configurations found for given pricing model Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 17:48:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 6,\n            \"name\": \"60 minutes\",\n            \"price\": 15,\n            \"value\": 60,\n            \"createdAt\": \"2020-12-03T17:40:33.332Z\",\n            \"updatedAt\": \"2020-12-03T17:40:33.332Z\",\n            \"priceId\": \"48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a new price configuration for a pricing model",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"33 minutes\",\n    \"price\":10,\n    \"value\":70\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1337/pricing-models/:pmId/prices",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"pricing-models",
+						":pmId",
+						"prices"
+					],
+					"variable": [
+						{
+							"key": "pmId",
+							"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Price configuration added successfully",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "33 minutes",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "70",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:05:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": \"New pricing configurations added successfully\"\n}"
+				},
+				{
+					"name": "Pricing Model not found for given Id",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "33 minutes",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "70",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:04:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Pricing Model not found for given Id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete pricing configuration",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:1337/pricing-models/:pmId/prices/:priceId",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"pricing-models",
+						":pmId",
+						"prices",
+						":priceId"
+					],
+					"variable": [
+						{
+							"key": "pmId",
+							"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+						},
+						{
+							"key": "priceId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pricing model not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices/:priceId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices",
+								":priceId"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6"
+								},
+								{
+									"key": "priceId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:43:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Pricing Model not found for given Id\"\n}"
+				},
+				{
+					"name": "Pricing configuration not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices/:priceId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices",
+								":priceId"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+								},
+								{
+									"key": "priceId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:43:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Pricing configurations not found for given Id\"\n}"
+				},
+				{
+					"name": "Deletion successful",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/pricing-models/:pmId/prices/:priceId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"pricing-models",
+								":pmId",
+								"prices",
+								":priceId"
+							],
+							"variable": [
+								{
+									"key": "pmId",
+									"value": "48e7d94d-a9ea-4fb2-a458-b2e2be6d3a6e"
+								},
+								{
+									"key": "priceId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:41:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": \"Pricing Configuration deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Set price model Id for given machine",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:1337/machines/:machineId/prices/:pmId",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"machines",
+						":machineId",
+						"prices",
+						":pmId"
+					],
+					"variable": [
+						{
+							"key": "machineId",
+							"value": "4111947a-6c58-4977-90fa-2caaaef88648"
+						},
+						{
+							"key": "pmId",
+							"value": "4d40de8f-68f8-4160-a83a-665dbc92d154"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pricing model not found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/machines/:machineId/prices/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"machines",
+								":machineId",
+								"prices",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "machineId",
+									"value": "4111947a-6c58-4977-90fa-2caaaef88648"
+								},
+								{
+									"key": "pmId",
+									"value": "4d40de8f-68f8-4160-a83a-665dbc92d15"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:50:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Pricing Model not found for given Id\"\n}"
+				},
+				{
+					"name": "Machine not found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/machines/:machineId/prices/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"machines",
+								":machineId",
+								"prices",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "machineId",
+									"value": "4111947a-6c58-4977-90fa-2caaaef8864"
+								},
+								{
+									"key": "pmId",
+									"value": "4d40de8f-68f8-4160-a83a-665dbc92d154"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:49:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Machine not found for given Id\"\n}"
+				},
+				{
+					"name": "Price model Id set successfully",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/machines/:machineId/prices/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"machines",
+								":machineId",
+								"prices",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "machineId",
+									"value": "4111947a-6c58-4977-90fa-2caaaef88648"
+								},
+								{
+									"key": "pmId",
+									"value": "4d40de8f-68f8-4160-a83a-665dbc92d154"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:48:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": \"Price model Id set successfully for given machine\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Unset price model for given machine",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:1337/machines/:machineId/prices/:pmId",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"machines",
+						":machineId",
+						"prices",
+						":pmId"
+					],
+					"variable": [
+						{
+							"key": "machineId",
+							"value": "4111947a-6c58-4977-90fa-2caaaef88648"
+						},
+						{
+							"key": "pmId",
+							"value": "4d40de8f-68f8-4160-a83a-665dbc92d154"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Price model unset successfully",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/machines/:machineId/prices/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"machines",
+								":machineId",
+								"prices",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "machineId",
+									"value": "4111947a-6c58-4977-90fa-2caaaef88648"
+								},
+								{
+									"key": "pmId",
+									"value": "4d40de8f-68f8-4160-a83a-665dbc92d154"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "79"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:52:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": \"Price model Id removed successfully for given machine\"\n}"
+				},
+				{
+					"name": "Machine not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/machines/:machineId/prices/:pmId",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"machines",
+								":machineId",
+								"prices",
+								":pmId"
+							],
+							"variable": [
+								{
+									"key": "machineId",
+									"value": "4111947a-6c58-4977-90fa-2caaaef8864"
+								},
+								{
+									"key": "pmId",
+									"value": "4d40de8f-68f8-4160-a83a-665dbc92d154"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 18:55:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Machine not found for given Id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Find Price model and configurations set for machine ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1337/machines/:machineId/prices",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"machines",
+						":machineId",
+						"prices"
+					],
+					"variable": [
+						{
+							"key": "machineId",
+							"value": "5632e1ec-46cb-4895-bc8b-a91644568cd5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default pricing is returned if price model is not cofigured for machine",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/machines/:machineId/prices",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"machines",
+								":machineId",
+								"prices"
+							],
+							"variable": [
+								{
+									"key": "machineId",
+									"value": "4111947a-6c58-4977-90fa-2caaaef88648"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "174"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 19:22:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"defaultPricing\": [\n            {\n                \"price\": 3,\n                \"name\": \"10 minutes\",\n                \"value\": 10\n            },\n            {\n                \"price\": 5,\n                \"name\": \"20 minutes\",\n                \"value\": 20\n            },\n            {\n                \"price\": 15,\n                \"name\": \"60 minutes\",\n                \"value\": 60\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Price model and configurations found successfully",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/machines/:machineId/prices",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"machines",
+								":machineId",
+								"prices"
+							],
+							"variable": [
+								{
+									"key": "machineId",
+									"value": "5632e1ec-46cb-4895-bc8b-a91644568cd5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "713"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 19:14:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\",\n        \"name\": \"Default\",\n        \"createdAt\": \"2020-12-03T17:40:33.320Z\",\n        \"updatedAt\": \"2020-12-03T17:40:33.320Z\",\n        \"priceConfigs\": [\n            {\n                \"id\": 3,\n                \"name\": \"10 minutes\",\n                \"price\": 3,\n                \"value\": 10,\n                \"createdAt\": \"2020-12-03T17:40:33.332Z\",\n                \"updatedAt\": \"2020-12-03T17:40:33.332Z\",\n                \"priceId\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"20 minutes\",\n                \"price\": 5,\n                \"value\": 20,\n                \"createdAt\": \"2020-12-03T17:40:33.332Z\",\n                \"updatedAt\": \"2020-12-03T17:40:33.332Z\",\n                \"priceId\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"60 minutes\",\n                \"price\": 15,\n                \"value\": 60,\n                \"createdAt\": \"2020-12-03T17:40:33.332Z\",\n                \"updatedAt\": \"2020-12-03T17:40:33.332Z\",\n                \"priceId\": \"4d40de8f-68f8-4160-a83a-665dbc92d154\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

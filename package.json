@@ -3,6 +3,10 @@
 	"version": "1.0.0",
 	"main": "src/index.js",
 	"scripts": {
+		"start": "npm run reset-dev && babel-node src/index.js",
+		"watch": "npm run reset-dev && nodemon --exec babel-node --watch src/index.js",
+		"test": "npm run reset-test && jest --forceExit --detectOpenHandles --maxWorkers=1",
+		"watch-test": "npm run reset-test && jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1",
 		"lint": "eslint src/index.js",
 		"migration": "sequelize db:migrate",
 		"migration-undo": "sequelize db:migrate:undo:all",
@@ -11,13 +15,9 @@
 		"reset-dev": "npm run migration-undo && npm run setup-dev",
 		"setup-test": "npm run test-migration && npm run test-seeders",
 		"reset-test": "npm run test-migration-undo && npm run setup-test",
-		"start": "npm run reset-dev && babel-node src/index.js",
 		"seeders": "sequelize db:seed:all --debug",
 		"test-migration": "NODE_ENV=test sequelize db:migrate --debug",
-		"test-seeders": "NODE_ENV=test sequelize db:seed:all --debug",
-		"test": "npm run reset-test && jest --forceExit --detectOpenHandles --maxWorkers=1",
-		"watch": "npm run reset-test && nodemon --exec babel-node --watch src/index.js",
-		"watch-test": "npm run reset-test && jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
+		"test-seeders": "NODE_ENV=test sequelize db:seed:all --debug"
 	},
 	"license": "MIT",
 	"dependencies": {
