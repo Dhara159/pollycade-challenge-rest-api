@@ -4,16 +4,31 @@
 	"main": "src/index.js",
 	"scripts": {
 		"lint": "eslint src/index.js",
-		"start": "babel-node src/index.js",
-		"test": "jest",
-		"watch": "nodemon --exec babel-node --watch src/index.js",
-		"watch-test": "jest --watch"
+		"migration": "sequelize db:migrate",
+		"migration-undo": "sequelize db:migrate:undo:all",
+		"test-migration-undo": "NODE_ENV=test sequelize db:migrate:undo:all --debug",
+		"setup-dev": "npm run migration && npm run seeders",
+		"reset-dev": "npm run migration-undo && npm run setup-dev",
+		"setup-test": "npm run test-migration && npm run test-seeders",
+		"reset-test": "npm run test-migration-undo && npm run setup-test",
+		"start": "npm run reset-dev && babel-node src/index.js",
+		"seeders": "sequelize db:seed:all --debug",
+		"test-migration": "NODE_ENV=test sequelize db:migrate --debug",
+		"test-seeders": "NODE_ENV=test sequelize db:seed:all --debug",
+		"test": "npm run reset-test && jest --forceExit --detectOpenHandles --maxWorkers=1",
+		"watch": "npm run reset-test && nodemon --exec babel-node --watch src/index.js",
+		"watch-test": "npm run reset-test && jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
 	},
 	"license": "MIT",
 	"dependencies": {
+		"dotenv": "^8.2.0",
 		"koa": "^2.11.0",
 		"koa-bodyparser": "^4.2.1",
+		"koa-logger": "^3.2.1",
 		"koa-router": "^8.0.6",
+		"pg": "^8.5.1",
+		"sequelize": "^6.3.5",
+		"sequelize-cli": "^6.2.0",
 		"uuid": "^3.4.0"
 	},
 	"devDependencies": {
@@ -23,12 +38,13 @@
 		"babel-eslint": "^10.0.3",
 		"eslint": "^6.8.0",
 		"jest": "^25.1.0",
-		"nodemon": "^2.0.2"
+		"nodemon": "^2.0.2",
+		"supertest": "^6.0.1"
 	},
 	"jest": {
 		"testEnvironment": "node",
 		"testPathIgnorePatterns": [
 			"<rootDir>/node_modules"
-	]
+		]
 	}
 }
