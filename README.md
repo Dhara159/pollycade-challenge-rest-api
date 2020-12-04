@@ -63,19 +63,33 @@ You must follow these steps for your solution to be accepted -- forks or other m
 ## Scrips
 
 "start": Run migrations, seeders and start server
+
 "watch": Run server with nodemon after resetting dev environment,
+
 "test": Run test after resetting test environment
+
 "watch-test": Run test in watch mode after resetting test environment
+
 "lint": Fix eslint issues
+
 "migration": Run sequelize migration
+
 "migration-undo": Undo all migrations
+
 "test-migration-undo": Undo all migrations in test environment
+
 "setup-dev": Run migrations and seeders in dev environment
+
 "reset-dev": Reset dev environment ( Undo seeders, migrations and run clean migrations and seeders)
+
 "setup-test": Run migrations and seeders in test environment
+
 "reset-test": Reset test environment ( Undo seeders, migrations and run clean migrations and seeders)
+
 "seeders": Run all seeders in dev environment
+
 "test-migration": Run sequelize migration in test environment
+
 "test-seeders": Run sequelize seeders in test environment
 
 ## Instructions to setup repo 
@@ -96,48 +110,4 @@ How to attempt this challenge:
 
 Checkout Polycade.postman_collection.json in repo.
 
-## Folder Structure
-
-.
-├── README.md
-├── machines.json
-├── package-lock.json
-├── package.json
-├── prices.json
-└── src
-    ├── controllers
-    │   ├── machine
-    │   │   ├── machine.controller.js
-    │   │   └── tests
-    │   │       └── machine.test.js
-    │   ├── price
-    │   │   ├── price.controller.js
-    │   │   └── tests
-    │   │       └── price.test.js
-    │   └── price-config
-    │       ├── price-config.controller.js
-    │       └── tests
-    │           └── price-config.test.js
-    ├── database
-    │   ├── config
-    │   │   └── config.js
-    │   ├── migrations
-    │   │   ├── 20201203124123-create-price.js
-    │   │   ├── 20201203124207-create-machine.js
-    │   │   └── 20201203124407-create-price-config.js
-    │   ├── models
-    │   │   ├── Machine.js
-    │   │   ├── Price.js
-    │   │   ├── PriceConfig.js
-    │   │   └── index.js
-    │   └── seeders
-    │       ├── 20201203094449-price.js
-    │       ├── 20201203094454-machine.js
-    │       └── 20201203094503-price-config.js
-    ├── helpers
-    │   └── errorHandler.js
-    ├── index.js
-    └── routes
-        ├── machine.route.js
-        ├── price-config.route.js
-        └── price.route.js
+## Folder Structure >> FOLDER-STRUCTURE.md
