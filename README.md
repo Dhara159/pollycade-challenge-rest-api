@@ -110,4 +110,4 @@ How to attempt this challenge:
 
 Checkout Polycade.postman_collection.json in repo.
 
-## Folder Structure >> FOLDER-STRUCTURE.md
+## [Folder Structure](https://github.com/Dhara159/pollycade-challenge-rest-api/blob/master/FOLDER-STRUCTURE.md)
