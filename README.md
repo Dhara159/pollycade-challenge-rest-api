@@ -106,8 +106,6 @@ How to attempt this challenge:
 
 > You don't have to run migrations and seeders separately. It is called directly when you run any server start, test command
 
-## Postman collection
-
-Checkout Polycade.postman_collection.json in repo.
+## [Postman collection](https://github.com/Dhara159/pollycade-challenge-rest-api/blob/master/Polycade.postman_collection.json)
 
 ## [Folder Structure](https://github.com/Dhara159/pollycade-challenge-rest-api/blob/master/FOLDER-STRUCTURE.md)
