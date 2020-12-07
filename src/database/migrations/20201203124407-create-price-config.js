@@ -21,6 +21,10 @@ module.exports = {
 			},
 			priceId: {
 				type: Sequelize.STRING,
+				references: {
+					model: 'Price',
+					key: 'id'
+				},
 				onDelete: 'CASCADE'
 			},
 			value: {

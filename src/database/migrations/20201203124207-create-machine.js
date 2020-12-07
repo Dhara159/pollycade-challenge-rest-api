@@ -19,6 +19,10 @@ module.exports = {
 			priceId: {
 				allowNull: true,
 				type: Sequelize.STRING,
+				references: {
+					model: 'Price',
+					key: 'id'
+				},
 				onDelete: 'CASCADE'
 			},
 			createdAt: {

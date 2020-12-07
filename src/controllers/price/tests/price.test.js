@@ -5,7 +5,7 @@ import server from './../../../index';
 
 const PREFIX = '/pricing-models';
 
-describe('Machine endpoints testing', () => {
+describe('Price endpoints testing', () => {
 	/**
 	 * GET /pricing-models
 	 */

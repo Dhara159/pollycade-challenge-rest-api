@@ -48,6 +48,30 @@ Build a REST API that will allow Polycade to manage pricing individually on mach
 - Database
   - Use PostgreSQL to store data about machines and prices
 
+### Missing Endpoints
+
+  - GET `/pricing-models/prices`
+    - get all pricing configurations from database
+  - PUT `/pricing-models/prices/:price-id`
+    - update price configurations for given price configuration Id
+  - GET `/machines/`
+    - get list of all machines
+  - POST `/machines/`
+    - add new machine
+  - PUT `machines/:machine-id`
+    - update machine data (Not only pricing model Id)
+  
+
+  Below endpoints are needed to soft delete the data after removing reference data from other tables 
+  - DELETE `/pricing-models/:pm-id`
+    - soft delete price data after removing reference from machine and price-config table (If cascade deletion is not used)
+  - DELETE `machines/:machine-id`
+    - soft delete machine data
+  - DELETE `/pricing-models/prices/:price-id`
+    - soft delete price configurations
+
+  Here, I have used `soft deletion` because hard deletion (Totally removing) data from production is a bad practice. Instead of that, We can use `paranoid` table of sequelize
+
 ## Instructions
 
 How to attempt this challenge:

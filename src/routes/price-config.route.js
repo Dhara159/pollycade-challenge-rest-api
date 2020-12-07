@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import { getPriceConfigOfPricingModel, createNewPriceConfiguration, removePriceConfiguration } from '../controllers/price-config/price-config.controller';
+import PriceConfigController from '../controllers/price-config/price-config.controller';
 
 const priceConfigRoutes = new Router({
 	prefix: '/pricing-models'
@@ -9,8 +9,8 @@ const priceConfigRoutes = new Router({
 /**
 * Routes related to CRUD operations in PriceConfig model
 */
-priceConfigRoutes.get('/:pmId/prices', getPriceConfigOfPricingModel)
-	.post('/:pmId/prices', createNewPriceConfiguration)
-	.delete('/:pmId/prices/:priceId', removePriceConfiguration);
+priceConfigRoutes.get('/:pmId/prices', PriceConfigController.getPriceConfigOfPricingModel)
+	.post('/:pmId/prices', PriceConfigController.createNewPriceConfiguration)
+	.delete('/:pmId/prices/:priceId', PriceConfigController.removePriceConfiguration);
 
 module.exports = priceConfigRoutes;

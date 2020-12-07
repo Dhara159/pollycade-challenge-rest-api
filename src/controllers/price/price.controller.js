@@ -3,41 +3,41 @@ import handleError from './../../helpers/errorHandler';
 
 import { default_pricing } from './../../../prices.json';
 
-/**
- * Get all of the pricing models available for the system
- * @param {*} ctx
- * @returns all of the pricing models available for the system with price configurations
- */
-export const getPriceModels = async ctx => {
-	await handleError({
-		tryFunc: async () => {
-			const priceList = await Price.findAll({ include: [ { model: PriceConfig, as: 'priceConfigs' } ] });
+export default class PriceController {
 
-			const defaultPrice = {
-				defaultPriceConfigs: default_pricing
-			};
+	/**
+	* Get all of the pricing models available for the system
+	* @param {*} ctx
+	* @returns all of the pricing models available for the system with price configurations
+	*/
+	static async getPriceModels (ctx) {
+		await handleError({
+			tryFunc: async () => {
+				const includeArr = [{ model: PriceConfig, as: 'priceConfigs' }];
+				const priceList = await Price.getAllPriceModels(includeArr);
 
-			ctx.status = 200;
-			ctx.body = {
-				success: true,
-				data: [...priceList, defaultPrice ]
-			};
-		}, ctx
-	});
-};
+				const defaultPrice = { defaultPriceConfigs: default_pricing };
 
-/**
- * Create a new pricing model in the system
- * @param {*} ctx.request.body New price model details
- * @returns Id of the new created price model
- */
-export const createPricingModel = async ctx => {
-	await handleError({
-		tryFunc: async () => {
-			const { name, priceId, pricing: { price, name: pricingName, value} } = ctx.request.body;
+				ctx.status = 200;
+				ctx.body = {
+					success: true,
+					data: [...priceList, defaultPrice ]
+				};
+			}, ctx
+		});
+	}
 
-			const isPriceModelCreated = await Price.create(
-				{
+	/**
+	* Create a new pricing model in the system
+	* @param {*} ctx.request.body New price model details
+	* @returns Id of the new created price model
+	*/
+	static async createPricingModel (ctx) {
+		await handleError({
+			tryFunc: async () => {
+				const { name, priceId, pricing: { price, name: pricingName, value} } = ctx.request.body;
+
+				const createObj = {
 					id: priceId,
 					name,
 					priceConfigs: {
@@ -45,74 +45,74 @@ export const createPricingModel = async ctx => {
 						name: pricingName,
 						value
 					}
-				}, {
-					include: [ { model: PriceConfig, as: 'priceConfigs' } ]
-				});
+				};
+				const includeArr = [ { model: PriceConfig, as: 'priceConfigs' } ];
+				const isPriceModelCreated = await Price.createNewPriceModel(createObj, includeArr);
 
-			ctx.assert(isPriceModelCreated, 500, 'Oops! Something went wrong. Could not add new pricing model');
+				ctx.assert(isPriceModelCreated, 500, 'Oops! Something went wrong. Could not add new pricing model');
 
-			ctx.status = 200;
-			ctx.body = {
-				success: true,
-				data: {priceModelId: isPriceModelCreated.id}
-			};
-		}, ctx
-	});
-};
+				ctx.status = 200;
+				ctx.body = {
+					success: true,
+					data: {priceModelId: isPriceModelCreated.id}
+				};
+			}, ctx
+		});
+	}
 
-/**
- * Get an individual pricing model
- * @param {*} ctx.params.pmId Id of price model
- * @returns Price model found for given id
- */
-export const getPricingModel = async ctx => {
-	await handleError({
-		tryFunc: async () => {
-			const {pmId} = ctx.params;
+	/**
+	* Get an individual pricing model
+	* @param {*} ctx.params.pmId Id of price model
+	* @returns Price model found for given id
+	*/
+	static async getPricingModel (ctx) {
+		await handleError({
+			tryFunc: async () => {
+				const {pmId} = ctx.params;
 
-			const priceModel = await Price.findByPk(pmId, {
-				include: [ { model: PriceConfig, as: 'priceConfigs' } ]
-			});
+				const includeArr = [ { model: PriceConfig, as: 'priceConfigs' } ];
+				const priceModel = await Price.findPriceByPk(pmId, includeArr);
 
-			ctx.assert(priceModel, 404, 'Pricing Model not found for given Id');
+				ctx.assert(priceModel, 404, 'Pricing Model not found for given Id');
 
-			ctx.status = 200;
-			ctx.body = {
-				success: true,
-				data: priceModel
-			};
-		}, ctx
-	});
-};
+				ctx.status = 200;
+				ctx.body = {
+					success: true,
+					data: priceModel
+				};
+			}, ctx
+		});
+	}
 
-/**
- * Updates an existing pricing model meta-data
- * @param {*} ctx.params.pmId Id of price model
- * @param {*} ctx.request.body Data to be updated in price model
- * @returns Success message
- */
-export const updatePricingModel = async ctx => {
-	await handleError({
-		tryFunc: async () => {
+	/**
+	* Updates an existing pricing model meta-data
+	* @param {*} ctx.params.pmId Id of price model
+	* @param {*} ctx.request.body Data to be updated in price model
+	* @returns Success message
+	*/
+	static async updatePricingModel (ctx) {
+		await handleError({
+			tryFunc: async () => {
 
-			const { body } = ctx.request;
-			const { pmId } = ctx.params;
+				const { body } = ctx.request;
+				const { pmId } = ctx.params;
 
-			const priceModel = await Price.findByPk(pmId);
+				const priceModel = await Price.findPriceByPk(pmId);
 
-			ctx.assert(priceModel, 404, 'Pricing Model not found for given Id');
+				ctx.assert(priceModel, 404, 'Pricing Model not found for given Id');
 
-			const updatedPriceModel = await Price.update({
-				...body
-			}, {where: { id: pmId}} );
+				const updatedPriceModel = await Price.updatePrice({
+					...body
+				}, { id: pmId} );
 
-			ctx.assert(updatedPriceModel, 400, 'Could not update pricing model. Please try again');
+				ctx.assert(updatedPriceModel, 400, 'Could not update pricing model. Please try again');
 
-			ctx.status = 200;
-			ctx.body = {
-				success: true,
-				data: 'Pricing model updated successfully'
-			};
-		}, ctx
-	});
-};
+				ctx.status = 200;
+				ctx.body = {
+					success: true,
+					data: 'Pricing model updated successfully'
+				};
+			}, ctx
+		});
+	}
+}

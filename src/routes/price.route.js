@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import { getPriceModels, createPricingModel, getPricingModel, updatePricingModel } from '../controllers/price/price.controller';
+import PriceController from '../controllers/price/price.controller';
 
 const priceRouter = new Router({
 	prefix: '/pricing-models'
@@ -9,9 +9,9 @@ const priceRouter = new Router({
 /**
 * Routes related to CRUD operations in Price model
 */
-priceRouter.get('/', getPriceModels)
-	.post('/', createPricingModel)
-	.get('/:pmId', getPricingModel)
-	.put('/:pmId', updatePricingModel);
+priceRouter.get('/', PriceController.getPriceModels)
+	.post('/', PriceController.createPricingModel)
+	.get('/:pmId', PriceController.getPricingModel)
+	.put('/:pmId', PriceController.updatePricingModel);
 
 module.exports = priceRouter;

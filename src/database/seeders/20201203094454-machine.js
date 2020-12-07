@@ -16,7 +16,7 @@ module.exports = {
 		{
 			id: '4111947a-6c58-4977-90fa-2caaaef88648',
 			name: 'Machine 2',
-			priceId: '',
+			priceId: null,
 			createdAt: new Date(),
 			updatedAt: new Date()
 		},
